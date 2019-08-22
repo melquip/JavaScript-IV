@@ -50,14 +50,10 @@ class Instructor extends Person {
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
 	randGrade(student) { // stretch
-		student.grade = Number(student.grade);
-		if(student.grade >= 70) {
-			console.log(`${student.name} just graduated!`);
-			return `${student.name} just graduated!`;
-		}
-		student.grade = Number(student.grade) + Number(((Math.random() * 10) - 5).toFixed(0));
-		console.log(`${student.name} has a ${student.grade}% grade`);
-		return `${student.name} has a ${student.grade}% grade`;
+		let newGrade = Number(student.grade) + Number(((Math.random() * 10) - 2).toFixed(0));
+		console.log(`${student.name} has a ${newGrade}% grade`, Math.random() * 10);
+		//student.hasGraduated();
+		return newGrade;
 	}
 }
 let john = new Instructor({
@@ -94,7 +90,8 @@ class Student extends Person {
 		this.favSubjects = data.favSubjects;
 		this.previousBackground = data.previousBackground;
 		
-		this.grade = (Math.random() * 100).toFixed(0); // stretch
+		this.grade = 20; // stretch
+		this.projectManager = data.projectManager;
 	}
 	listSubjects() {
 		console.log(`${this.name} favourite subjects: ${this.favSubjects}`);
@@ -108,25 +105,14 @@ class Student extends Person {
 		console.log(`${this.name} has begun sprint challenge on ${subject}`);
 		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
+	hasGraduated() {
+		while(this.grade < 70) {
+			this.grade = this.projectManager.randGrade(this);
+		}
+		console.log(`${this.name} just graduated!`);
+		return `${this.name} just graduated!`;
+	}
 }
-let melqui = new Student({
-	name: 'Melquisedeque', location: 'Portugal', age: 21,
-	className: 'JS-I', 
-	favSubjects: ['HTML', 'CSS', 'Javascript'], 
-	previousBackground: `Worked`
-});
-let aaron = new Student({
-	name: 'Aaron', location: 'US', age: 32,
-	className: 'JS-II', 
-	favSubjects: ['HTML', 'CSS', 'Javascript'], 
-	previousBackground: `Work`
-});
-let victor = new Student({
-	name: 'Victor', location: 'Nigeria', age: 29,
-	className: 'JS-III', 
-	favSubjects: ['HTML', 'CSS', 'Javascript'], 
-	previousBackground: `Electrical Engineering`
-});
 /*
 #### Project Manager
 
@@ -170,6 +156,28 @@ let emily = new ProjectManager({
 	gradClassName: 'JS-III', 
 	favInstructor: 'Gabe', 
 });
+
+let melqui = new Student({
+	name: 'Melquisedeque', location: 'Portugal', age: 21,
+	className: 'JS-I', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Worked`,
+	projectManager: jose,
+});
+let aaron = new Student({
+	name: 'Aaron', location: 'US', age: 32,
+	className: 'JS-II', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Work`,
+	projectManager: eliot,
+});
+let victor = new Student({
+	name: 'Victor', location: 'Nigeria', age: 29,
+	className: 'JS-III', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Electrical Engineering`,
+	projectManager: emily,
+});
 /*
 #### Stretch Problem
 
@@ -185,6 +193,7 @@ let emily = new ProjectManager({
 john.demo('Javascript Fundamentals');
 derek.grade(aaron, 'Javascript Fundamentals');
 alice.randGrade(victor);
+victor.hasGraduated();
 
 melqui.listSubjects();
 aaron.PRAssignment('Javascript Fundamentals');
