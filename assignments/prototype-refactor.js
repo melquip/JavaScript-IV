@@ -8,7 +8,7 @@ Prototype Refactor
 
 */
 /* TASK 1 */
-class Person {
+class Person2 { // had to change name to use in lambda-classes
 	constructor(name, age) {
 		this.name = name;
 		this.age = age;
@@ -26,7 +26,7 @@ class Person {
 		return `Stomach is empty now.`;
 	}
 }
-var me = new Person('Melqui', 21);
+var me = new Person2('Melqui', 21);
 console.log(me.greet(), me.eat('Rice'), me.poop());
 
 

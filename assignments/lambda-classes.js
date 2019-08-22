@@ -64,6 +64,28 @@ class Instructor extends Person {
   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
+*/
+class Student extends Person {
+	constructor(data) {
+		super(data);
+		this.className = data.className;
+		this.favSubjects = data.favSubjects;
+		this.previousBackground = data.previousBackground;
+	}
+	listsSubjects() {
+		console.log(`${this.name} favourite subjects: ${this.favSubjects}`);
+		return `${this.name} favourite subjects: ${this.favSubjects}`;
+	}
+	PRAssignment(subject) {
+		console.log(`${this.name} has submitted a PR for ${subject}`);
+		return `${this.name} has submitted a PR for ${subject}`;
+	}
+	sprintChallenge(subject) {
+		console.log(`${this.name} has begun sprint challenge on ${subject}`);
+		return `${this.name} has begun sprint challenge on ${subject}`;
+	}
+}
+/*
 #### Project Manager
 
 * Now that we have instructors and students, we'd be nowhere without our PM's
@@ -75,6 +97,23 @@ class Instructor extends Person {
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
+*/
+class ProjectManager extends Instructor {
+	constructor(data) {
+		super(data);
+		this.gradClassName = data.gradClassName;
+		this.favInstructor = data.favInstructor;
+	}
+	standUp(channel) {
+		console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+		return `${this.name} favourite subjects: ${this.favSubjects}`;
+	}
+	debugsCode(student, subject) {
+		console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+		return `${this.name} debugs ${student.name}'s code on ${subject}`;
+	}
+}
+/*
 #### Stretch Problem
 
 * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
