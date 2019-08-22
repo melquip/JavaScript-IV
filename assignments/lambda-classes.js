@@ -49,6 +49,15 @@ class Instructor extends Person {
 		console.log(`${student.name} receives a perfect score on ${subject}`);
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
+	randGrade(student) { // stretch
+		if(student.grade >= 70) {
+			console.log(`${student.name} just graduated!`);
+			return `${student.name} just graduated!`;
+		}
+		student.grade = student.grade + ((Math.random() * 10) - 5).toFixed(0);
+		console.log(`${student.name} has a ${student.grade}% grade`);
+		return `${student.name} has a ${student.grade}% grade`;
+	}
 }
 /*
 #### Student
@@ -71,6 +80,8 @@ class Student extends Person {
 		this.className = data.className;
 		this.favSubjects = data.favSubjects;
 		this.previousBackground = data.previousBackground;
+		
+		this.grade = (Math.random() * 100).toFixed(0); // stretch
 	}
 	listsSubjects() {
 		console.log(`${this.name} favourite subjects: ${this.favSubjects}`);
