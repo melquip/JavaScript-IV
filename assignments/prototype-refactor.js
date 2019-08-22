@@ -7,8 +7,9 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
+(function() {
 /* TASK 1 */
-class Person2 { // had to change name to use in lambda-classes
+class Person { // had to change name to use in lambda-classes
 	constructor(name, age) {
 		this.name = name;
 		this.age = age;
@@ -26,7 +27,7 @@ class Person2 { // had to change name to use in lambda-classes
 		return `Stomach is empty now.`;
 	}
 }
-let me = new Person2('Melqui', 21);
+let me = new Person('Melqui', 21);
 console.log(me.greet(), me.eat('Rice'), me.poop());
 
 
@@ -59,7 +60,7 @@ console.log(car.drive(10), car.crash(), car.repair());
 
 
 /* TASK 3 */
-class Baby extends Person2 {
+class Baby extends Person {
 	constructor(name, age) {
 		super(name, age);
 	}
@@ -226,3 +227,5 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+})();

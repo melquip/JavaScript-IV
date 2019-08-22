@@ -9,6 +9,7 @@
 * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
 */
+(function() {
 class Person {
 	constructor(data) {
 		this.name = data.name;
@@ -49,10 +50,9 @@ class Instructor extends Person {
 		console.log(`${student.name} receives a perfect score on ${subject}`);
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
-	randGrade(student) { // stretch
+	gradeStudent(student) { // stretch
 		let newGrade = Number(student.grade) + Number(((Math.random() * 10) - 2).toFixed(0));
-		console.log(`${student.name} has a ${newGrade}% grade`, Math.random() * 10);
-		//student.hasGraduated();
+		console.log(`${student.name} has a new grade! ${newGrade}%`);
 		return newGrade;
 	}
 }
@@ -90,7 +90,7 @@ class Student extends Person {
 		this.favSubjects = data.favSubjects;
 		this.previousBackground = data.previousBackground;
 		
-		this.grade = 20; // stretch
+		this.grade = (Math.random() * 100).toFixed(0); // stretch
 		this.projectManager = data.projectManager;
 	}
 	listSubjects() {
@@ -105,9 +105,9 @@ class Student extends Person {
 		console.log(`${this.name} has begun sprint challenge on ${subject}`);
 		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
-	hasGraduated() {
+	graduate() {
 		while(this.grade < 70) {
-			this.grade = this.projectManager.randGrade(this);
+			this.grade = this.projectManager.gradeStudent(this);
 		}
 		console.log(`${this.name} just graduated!`);
 		return `${this.name} just graduated!`;
@@ -192,8 +192,8 @@ let victor = new Student({
 
 john.demo('Javascript Fundamentals');
 derek.grade(aaron, 'Javascript Fundamentals');
-alice.randGrade(victor);
-victor.hasGraduated();
+//alice.gradeStudent(victor);
+victor.graduate();
 
 melqui.listSubjects();
 aaron.PRAssignment('Javascript Fundamentals');
@@ -202,3 +202,6 @@ victor.sprintChallenge('Javascript Fundamentals');
 jose.standUp('#webeu3');
 eliot.debugsCode(melqui, 'Javascript Fundamentals');
 emily.debugsCode(aaron, 'Javascript Fundamentals');
+
+
+})();
