@@ -59,6 +59,18 @@ class Instructor extends Person {
 		return `${student.name} has a ${student.grade}% grade`;
 	}
 }
+const john = new Instructor({
+	name: 'John', location: 'US', age: 30,
+	favLanguage: 'JavaScript', specialty: 'Front-end', catchPhrase: `Don't forget the homies`
+});
+const derek = new Instructor({
+	name: 'Derek', location: 'UK', age: 32,
+	favLanguage: 'CSS', specialty: 'Front-end', catchPhrase: `Easypeasy`
+});
+const alice = new Instructor({
+	name: 'Alice', location: 'France', age: 29,
+	favLanguage: 'JavaScript', specialty: 'Back-end', catchPhrase: `Trust the process`
+});
 /*
 #### Student
 
@@ -83,7 +95,7 @@ class Student extends Person {
 		
 		this.grade = (Math.random() * 100).toFixed(0); // stretch
 	}
-	listsSubjects() {
+	listSubjects() {
 		console.log(`${this.name} favourite subjects: ${this.favSubjects}`);
 		return `${this.name} favourite subjects: ${this.favSubjects}`;
 	}
@@ -96,6 +108,24 @@ class Student extends Person {
 		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
 }
+const melqui = new Student({
+	name: 'Melquisedeque', location: 'Portugal', age: 21,
+	className: 'JS-I', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Worked`
+});
+const aaron = new Student({
+	name: 'Aaron', location: 'US', age: 32,
+	className: 'JS-II', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Work`
+});
+const victor = new Student({
+	name: 'Victor', location: 'Nigeria', age: 29,
+	className: 'JS-III', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Electrical Engineering`
+});
 /*
 #### Project Manager
 
@@ -124,6 +154,21 @@ class ProjectManager extends Instructor {
 		return `${this.name} debugs ${student.name}'s code on ${subject}`;
 	}
 }
+const jose = new Student({
+	name: 'Jose', location: 'Nigeria', age: 21,
+	gradClassName: 'JS-I', 
+	favInstructor: 'Gabe', 
+});
+const eliot = new Student({
+	name: 'Eliot', location: 'Spain', age: 32,
+	gradClassName: 'JS-II', 
+	favInstructor: 'Gabe', 
+});
+const emily = new Student({
+	name: 'Emily', location: 'Nigeria', age: 29,
+	gradClassName: 'JS-III', 
+	favInstructor: 'Gabe', 
+});
 /*
 #### Stretch Problem
 
@@ -135,3 +180,15 @@ class ProjectManager extends Instructor {
   * 
   * 
 */
+
+john.demo('Javascript Fundamentals');
+derek.grade(victor, 'Javascript Fundamentals');
+alice.randGrade(victor);
+
+melqui.listSubjects();
+aaron.PRAssignment('Javascript Fundamentals');
+victor.sprintChallenge('Javascript Fundamentals');
+
+jose.standUp('#webeu3');
+eliot.debugsCode(melqui, 'Javascript Fundamentals');
+emily.debugsCode(aaron, 'Javascript Fundamentals');
