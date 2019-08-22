@@ -26,7 +26,7 @@ class Person2 { // had to change name to use in lambda-classes
 		return `Stomach is empty now.`;
 	}
 }
-var me = new Person2('Melqui', 21);
+let me = new Person2('Melqui', 21);
 console.log(me.greet(), me.eat('Rice'), me.poop());
 
 
@@ -54,7 +54,7 @@ class Car {
 		return `I've been repaired.`;
 	}
 }
-var car = new Car('2011', 'Prius');
+let car = new Car('2011', 'Prius');
 console.log(car.drive(10), car.crash(), car.repair());
 
 
@@ -67,7 +67,7 @@ class Baby extends Person2 {
 		return `Baby played and said "Goo-goo ga-ga".`;
 	}
 }
-var baby = new Baby('Elias', 0.8);
+let baby = new Baby('Elias', 0.8);
 console.log(baby.greet(), baby.play());
 
 
@@ -122,9 +122,9 @@ class Animal {
 		return `${this.name} is already your pet!`;
 	}
 }
-var aDog = new Animal('Kikas', 'dog', false, 'Woof-woof');
-var aCat = new Animal('Whiskers', 'cat', false, 'Miaawwww');
-var aFox = new Animal(null, 'fox', true, 'Chacha-chacha-chacha-chow');
+let aDog = new Animal('Kikas', 'dog', false, 'Woof-woof');
+let aCat = new Animal('Whiskers', 'cat', false, 'Miaawwww');
+let aFox = new Animal(null, 'fox', true, 'Chacha-chacha-chacha-chow');
 console.log(aDog.talk(), aCat.talk(), aFox.talk());
 console.log(aDog.eat('fish'), aCat.eat('fish'), aFox.eat('fish'));
 console.log(aFox.tame(), aFox.giveName('Ember'));

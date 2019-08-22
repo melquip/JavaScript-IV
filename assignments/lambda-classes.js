@@ -60,15 +60,15 @@ class Instructor extends Person {
 		return `${student.name} has a ${student.grade}% grade`;
 	}
 }
-const john = new Instructor({
+let john = new Instructor({
 	name: 'John', location: 'US', age: 30,
 	favLanguage: 'JavaScript', specialty: 'Front-end', catchPhrase: `Don't forget the homies`
 });
-const derek = new Instructor({
+let derek = new Instructor({
 	name: 'Derek', location: 'UK', age: 32,
 	favLanguage: 'CSS', specialty: 'Front-end', catchPhrase: `Easypeasy`
 });
-const alice = new Instructor({
+let alice = new Instructor({
 	name: 'Alice', location: 'France', age: 29,
 	favLanguage: 'JavaScript', specialty: 'Back-end', catchPhrase: `Trust the process`
 });
@@ -109,19 +109,19 @@ class Student extends Person {
 		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
 }
-const melqui = new Student({
+let melqui = new Student({
 	name: 'Melquisedeque', location: 'Portugal', age: 21,
 	className: 'JS-I', 
 	favSubjects: ['HTML', 'CSS', 'Javascript'], 
 	previousBackground: `Worked`
 });
-const aaron = new Student({
+let aaron = new Student({
 	name: 'Aaron', location: 'US', age: 32,
 	className: 'JS-II', 
 	favSubjects: ['HTML', 'CSS', 'Javascript'], 
 	previousBackground: `Work`
 });
-const victor = new Student({
+let victor = new Student({
 	name: 'Victor', location: 'Nigeria', age: 29,
 	className: 'JS-III', 
 	favSubjects: ['HTML', 'CSS', 'Javascript'], 
@@ -155,17 +155,17 @@ class ProjectManager extends Instructor {
 		return `${this.name} debugs ${student.name}'s code on ${subject}`;
 	}
 }
-const jose = new ProjectManager({
+let jose = new ProjectManager({
 	name: 'Jose', location: 'Nigeria', age: 21,
 	gradClassName: 'JS-I', 
 	favInstructor: 'Gabe', 
 });
-const eliot = new ProjectManager({
+let eliot = new ProjectManager({
 	name: 'Eliot', location: 'Spain', age: 32,
 	gradClassName: 'JS-II', 
 	favInstructor: 'Gabe', 
 });
-const emily = new ProjectManager({
+let emily = new ProjectManager({
 	name: 'Emily', location: 'Nigeria', age: 29,
 	gradClassName: 'JS-III', 
 	favInstructor: 'Gabe', 
