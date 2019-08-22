@@ -59,7 +59,7 @@ console.log(car.drive(10), car.crash(), car.repair());
 
 
 /* TASK 3 */
-class Baby extends Person {
+class Baby extends Person2 {
 	constructor(name, age) {
 		super(name, age);
 	}

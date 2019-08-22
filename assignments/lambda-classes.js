@@ -50,11 +50,12 @@ class Instructor extends Person {
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
 	randGrade(student) { // stretch
+		student.grade = Number(student.grade);
 		if(student.grade >= 70) {
 			console.log(`${student.name} just graduated!`);
 			return `${student.name} just graduated!`;
 		}
-		student.grade = student.grade + ((Math.random() * 10) - 5).toFixed(0);
+		student.grade = Number(student.grade) + Number(((Math.random() * 10) - 5).toFixed(0));
 		console.log(`${student.name} has a ${student.grade}% grade`);
 		return `${student.name} has a ${student.grade}% grade`;
 	}
@@ -154,17 +155,17 @@ class ProjectManager extends Instructor {
 		return `${this.name} debugs ${student.name}'s code on ${subject}`;
 	}
 }
-const jose = new Student({
+const jose = new ProjectManager({
 	name: 'Jose', location: 'Nigeria', age: 21,
 	gradClassName: 'JS-I', 
 	favInstructor: 'Gabe', 
 });
-const eliot = new Student({
+const eliot = new ProjectManager({
 	name: 'Eliot', location: 'Spain', age: 32,
 	gradClassName: 'JS-II', 
 	favInstructor: 'Gabe', 
 });
-const emily = new Student({
+const emily = new ProjectManager({
 	name: 'Emily', location: 'Nigeria', age: 29,
 	gradClassName: 'JS-III', 
 	favInstructor: 'Gabe', 
@@ -182,7 +183,7 @@ const emily = new Student({
 */
 
 john.demo('Javascript Fundamentals');
-derek.grade(victor, 'Javascript Fundamentals');
+derek.grade(aaron, 'Javascript Fundamentals');
 alice.randGrade(victor);
 
 melqui.listSubjects();
